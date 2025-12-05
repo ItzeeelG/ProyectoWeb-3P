@@ -1,0 +1,483 @@
+/* Fondo general */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Imagen de fondo */
+.fondo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(3px); /* un poco más */
+}
+
+/* Contenido del centro */
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Título */
+.titulo {
+    background-color: #dce1e9;
+    color: #616d7c;
+    padding: 30px;              /* más grande */
+    font-size: 40px;            /* más grande */
+    border-radius: 8px;
+}
+
+/* Subtítulo */
+.subtitulo {
+    background-color: #c4ccd8;
+    color: white;
+    padding: 25px;              /* más grande */
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 24px;            /* más grande */
+}
+
+/* Botones */
+.botones {
+    margin-top: 40px;           /* más separación */
+}
+
+.btn {
+    background-color: #dce1e9;
+    color: #616d7c;
+    padding: 20px 40px;         /* botones grandes */
+    margin: 0 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;            /* letras más grandes */
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background-color: #b7c0ce;
+}
+
+/* ===== CATALOGO ===== */
+
+.titulo-catalogo {
+    text-align: center;
+    color: #a46b45;
+    font-size: 50px;
+    margin-top: 30px;
+}
+
+.card-catalogo {
+    width: 80%;
+    margin: auto;
+    border: 2px solid #c4c4c4;
+    padding: 30px;
+    border-radius: 5px;
+    background: #ffffff;
+}
+
+.subtitulo-catalogo {
+    text-align: center;
+    color: #a46b45;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* solo una columna */
+    gap: 20px; /* espacio entre campos */
+}
+
+
+.campo label {
+    color: #a46b45;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.btn-agregar {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 40px;
+    background-color: #136ebf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-agregar:hover {
+    background-color: #0f5999;
+}
+
+/* TABLA */
+
+.tabla-catalogo {
+    width: 90%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.tabla-catalogo th {
+    background-color: #cbb6a1;
+    padding: 12px;
+}
+
+.tabla-catalogo td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Botones de acciones */
+/* Botones de acciones */
+td:nth-child(3) {
+    text-align: center;      /* Centra los botones */
+}
+
+.btn-eliminar,
+.btn-modificar,
+.btn-detalles {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 6px;           /* Separación entre botones */
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.25); /* SOMBRA */
+    transition: 0.2s ease-in-out;
+}
+
+/* Colores */
+.btn-eliminar {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-modificar {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-detalles {
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Hover bonito */
+.btn-eliminar:hover,
+.btn-modificar:hover,
+.btn-detalles:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 5px 12px rgba(0,0,0,0.35);
+}
+
+
+/* Fondo oscuro */
+.modal-oculto {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: aparecerFondo 0.3s ease-out;
+}
+
+/* Caja del modal */
+.modal-contenido {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+    animation: aparecerModal 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Inputs */
+.modal-contenido input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+/* Botones */
+.modal-botones {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-guardar {
+    background: #3b82f6;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background: #ef4444;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@keyframes aparecerFondo {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes aparecerModal {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-oculto { display: none; }
+#modalEditar {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.modal-contenido {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#modalEditar {
+    display: none;
+}
+
+
+/* ============================== */
+/*         TOAST BONITO           */
+/* ============================== */
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    background: #4caf50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 18px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+    transition: 0.5s;
+    z-index: 9999;
+}
+
+.toast.error {
+    background: #e74c3c;
+}
+
+.toast.show {
+    right: 20px;
+}
+
+
+/* ============================== */
+/*        TOAST MEJORADO          */
+/* ============================== */
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 240px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+    transition: 0.5s ease;
+    z-index: 9999;
+    font-weight: bold;
+}
+
+/* Colores personalizados */
+.toast.success {
+    background: #28a745;   /* Verde */
+}
+
+.toast.delete {
+    background: #e74c3c;   /* Rojo */
+}
+
+.toast.update {
+    background: #f0ad4e;   /* naranja */
+}
+
+.toast.error {
+    background: #3a0701;   /* Rojo oscuro */
+}
+
+/* Animación al aparecer */
+.toast.show {
+    right: 20px;
+}
+
+/* ======================= */
+/* SELECT BONITO PERSONALIZADO */
+/* ======================= */
+
+.select-bonito {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #c9c9c9;
+    border-radius: 8px;
+    background-color: white;
+
+    font-size: 16px;
+    color: #444;
+
+    appearance: none;          /* Quita estilo feo del sistema */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='gray'><polygon points='0,0 18,0 9,10'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+
+    transition: 0.25s ease;
+}
+
+/* Hover */
+.select-bonito:hover {
+    border-color: #a46b45;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Focus (cuando haces click) */
+.select-bonito:focus {
+    outline: none;
+    border-color: #a46b45;
+    box-shadow: 0px 4px 10px rgba(164,107,69,0.4);
+}
+
+
+
+/* Modal eliminar igual de bonito que el editar */
+#modalEliminar {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    justify-content: center;
+    align-items: center;
+    animation: aparecerFondo 0.3s ease-out;
+}
+
+
+.btn-eliminar-modal {
+    background-color: #d9534f;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-eliminar-modal:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 5px 12px rgba(0,0,0,0.35);
+}
+
+
+.botones_catalogo {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    gap: 20px;               /* Separación entre botones */
+    margin: 40px 0;          /* Espacio arriba y abajo */
+}
+
+.btn-catalogo {
+    background-color: #54ebff;  /* Azul bonito */
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.btn-catalogo:hover {
+    background-color: #0f5999;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
+}
+
+/* Contenedor de botones centrado */
+.botones_proveedores {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    gap: 20px;               /* Separación entre botones */
+    margin: 40px 0;          /* Espacio arriba y abajo */
+}
+
+/* Botones bonitos */
+.btn-proveedor {
+    background-color: #54ebff;  /* Azul bonito */
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+/* Hover con efecto */
+.btn-proveedor:hover {
+    background-color: #0f5999;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
+}

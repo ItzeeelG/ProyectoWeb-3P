@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 class="titulo-catalogo">Catálogo</h1>
+
+    <div class="card-catalogo">
+      <h2 class="subtitulo-catalogo">Agregar un producto</h2>
+
+      <div class="form-grid">
+        <div class="campo">
+          <label>Nombre del producto:</label>
+          <input id="nombre" type="text" placeholder="Escribe aquí..." />
+        </div>
+
+        <div class="campo">
+          <label>Categoría:</label>
+          <input id="categoria" type="text" placeholder="Escribe aquí..." />
+        </div>
+
+        <div class="campo">
+          <label>Descripción:</label>
+          <input id="descripcion" type="text" placeholder="Escribe aquí..." />
+        </div>
+
+        <div class="campo">
+          <label>Proveedor:</label>
+          <select id="proveedor" class="select-bonito">
+            <option value="">Selecciona un proveedor</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label>Precio:</label>
+          <input id="precio" type="text" placeholder="Escribe aquí..." />
+        </div>
+
+        <div class="campo">
+          <label>Stock:</label>
+          <input id="stock" type="text" placeholder="Escribe aquí..." />
+        </div>
+      </div>
+
+      <button class="btn-agregar" onclick="agregarProducto()">
+        Agregar producto
+      </button>
+    </div>
+
+    <!-- TABLA -->
+    <table class="tabla-catalogo">
+      <thead>
+        <tr>
+          <th>PRODUCTO</th>
+          <th>STOCK</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody id="tablaCatalogo">
+        <!-- Aquí el script insertará los productos -->
+      </tbody>
+    </table>
+
+    <!-- ============================
+ MODAL PARA EDITAR PRODUCTO
+============================= -->
+    <div id="modalEditar" class="modal-oculto">
+      <div class="modal-contenido">
+        <h2>Editar producto</h2>
+
+        <label>Nombre:</label>
+        <input type="text" id="editNombre" />
+
+        <label>Categoría:</label>
+        <input type="text" id="editCategoria" />
+
+        <label>Descripción:</label>
+        <input type="text" id="editDescripcion" />
+
+        <label>Proveedor:</label>
+        <select id="editProveedor" class="select-bonito"></select>
+
+        <label>Precio:</label>
+        <input type="number" id="editPrecio" />
+
+        <label>Stock:</label>
+        <input type="number" id="editStock" />
+
+        <div class="modal-botones">
+          <button id="btnGuardar" class="btn-guardar">Guardar cambios</button>
+          <button onclick="cerrarModal()" class="btn-cancelar">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalDetalles" class="modal-oculto">
+      <div class="modal-contenido" style="width: 400px">
+        <h2>Detalles del producto</h2>
+        <div id="infoDetalles"></div>
+
+        <button class="btn-cancelar" onclick="cerrarDetalles()">Cerrar</button>
+      </div>
+    </div>
+
+    <div id="modalConfirm" class="modal-oculto">
+      <div class="modal-contenido" style="width: 320px">
+        <h3 style="text-align: center">¿Eliminar este producto?</h3>
+
+        <div class="modal-botones">
+          <button id="btnConfirmarEliminar" class="btn-guardar">
+            Sí, eliminar
+          </button>
+          <button onclick="cerrarConfirm()" class="btn-cancelar">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <div class="botones_catalogo">
+      <button
+        class="btn-catalogo"
+        onclick="location.href='pagina_de_inicio.html'"
+      >
+        Inicio
+      </button>
+      <button class="btn-catalogo" onclick="location.href='proveedores.html'">
+        Proveedores
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

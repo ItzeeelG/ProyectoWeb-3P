@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proveedores</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 class="titulo-catalogo">Proveedores</h1>
+
+    <div class="card-catalogo">
+      <h2 class="subtitulo-catalogo">Agregar un proveedor</h2>
+
+      <div class="form-grid">
+        <div class="campo">
+          <label>Nombre del proveedor:</label>
+          <input
+            id="nombreProveedor"
+            type="text"
+            placeholder="Escribe aquí..."
+          />
+        </div>
+
+        <div class="campo">
+          <label>Teléfono del proveedor:</label>
+          <input
+            id="telefonoProveedor"
+            type="text"
+            placeholder="Escribe aquí..."
+          />
+        </div>
+      </div>
+
+      <button class="btn-agregar" onclick="agregarProveedor()">
+        Agregar proveedor
+      </button>
+    </div>
+
+    <!-- TABLA -->
+    <table class="tabla-catalogo">
+      <thead>
+        <tr>
+          <th>PROVEEDOR</th>
+          <th>TELÉFONO</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody id="tablaProveedores"></tbody>
+    </table>
+
+    <!-- MODAL EDITAR -->
+    <div id="modalEditar" class="modal-oculto">
+      <div class="modal-contenido">
+        <h3>Editar Proveedor</h3>
+        <input type="text" id="editarNombre" placeholder="Nombre" />
+        <input type="text" id="editarTelefono" placeholder="Teléfono" />
+        <div class="modal-botones">
+          <button class="btn-cancelar" onclick="cerrarModalEditar()">
+            Cancelar
+          </button>
+          <button class="btn-guardar" onclick="guardarEdicion()">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ELIMINAR -->
+    <div id="modalEliminar" class="modal-oculto">
+      <div class="modal-contenido">
+        <h3>Eliminar Proveedor</h3>
+        <p id="mensajeEliminar">¿Seguro que deseas eliminar este proveedor?</p>
+        <div class="modal-botones">
+          <button
+            style="background-color: blue"
+            class="btn-eliminar-modal"
+            onclick="confirmarEliminar()"
+          >
+            Eliminar
+          </button>
+          <button class="btn-cancelar" onclick="cerrarModalEliminar()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="botones_proveedores">
+      <button
+        class="btn-proveedor"
+        onclick="location.href='pagina_de_inicio.html'"
+      >
+        Inicio
+      </button>
+      <button class="btn-proveedor" onclick="location.href='catalogo.html'">
+        Catalogo
+      </button>
+    </div>
+    <script src="script_proveedores.js"></script>
+  </body>
+</html>
